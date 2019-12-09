@@ -5,11 +5,11 @@
 
 At the end of instruction, students will be able to:
 - Tell what is an algorithm
-- Write Python functions implemting algorithms
+- Write Python functions implementing algorithms
 - Describe how to compare protein structures
 - Describe how to compare protein sequences
 - Explain what is a substitution matrix
-- Describe the difference between PAM and BLOSUM matrices
+- Describe the differences between PAM and BLOSUM matrices
 - Use a substitution matrix to determine the similarity of two sequences
 - Write a Python function implementing an exhaustive pairwise alignment algorithm
 - Discuss dynamic programming strategies
@@ -21,6 +21,6 @@ At the end of instruction, students will be able to:
 ## Mid term exam
 Date: Tuesday, 13 Jan 2019
 Consisting in:
-- one exercise or an open ended question to assess the ability to discuss substitution matrices
-- A script implementing a basic pairwise alignment algorithm
+- One exercise or an open ended question to assess the ability to discuss substitution matrices
+- A script assessing the ability to implement a basic pairwise alignment algorithm in Python
 
