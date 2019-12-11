@@ -1,5 +1,5 @@
 # Programming for Bioinformatics
-## Module 2
+## Module 2 - Sequence Alignment
 
 ## Learning Outcomes
 
