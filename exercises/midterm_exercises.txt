@@ -1,0 +1,166 @@
+***********************************************************************
+Exercises to test your knowledge:
+***********************************************************************
+
+1) You should be able to answer the following questions: 
+
+What is a PAM matrix? 
+How are PAM matrices derived? 
+What is a BLOSUM matrix? 
+How are BLOSUM matrices derived? 
+What are the main differences between PAM and BLOSUM matrices?
+Why do we use scoring matrices? 
+How do we use scoring matrices in aligning two sequences?
+
+You should be able to critically discuss the usage of PAM and/or BLOSUM matrices in protein-protein alignment algorithms.
+
+2) You should be able to answer the following questions:
+What is the idea behind dynamic programming? (or what is dynamic programming?)
+What are the advantages of using dynamic programming over the "naif" algorithm?
+What is the Needleman and Wunsh algorithm?
+Describe how the NW algorithm works
+
+***********************************************************************
+Exercises to test your ability to implement an algorithm (in Python)
+***********************************************************************
+
+For each exercise in which some programming is requested, write the pseudo-code before starting writing the actual code.
+Modularise your scripts as much as possible, defining a different function for each different action.
+Use comments to briefly describe what happens in each part of the script.
+
+------------------------------------------------------------------------
+1) Write a function that multiplies two N*N matrices.
+As a test you can use:
+    A = [[2,4],
+         [3,1]]
+    B = [[2,1],
+         [1,3]]
+
+the result of which is:
+
+AB = [[8, 14]
+      [7, 6]] 
+------------------------------------------------------------------------
+2) Write a script that generates all the possible ungapped alignments of two sequences, scores them and identifies
+the best scoring ones.
+
+These are all the possible ungapped alingments of the two sequences: TCA and GA:
+
+--TCA  -TCA  TCA  TCA  TCA-  TCA--
+GA---  GA--  GA-  -GA  --GA  ---GA
+
+Using the following scoring scheme:
+
+score_matrix = {'AA': 2, 'AC':-1, 'AT':-1, 'AG': 0,
+                'CA':-1, 'CC': 2, 'CT': 0, 'CG':-1,
+                'TA':-1, 'TC': 0, 'TT': 2, 'TG':-1,
+                'GA': 0, 'GC':-1, 'GT':-1, 'GG': 2}
+
+
+The best scoring alignment is:
+TCA
+-GA
+------------------------------------------------------------------------
+
+3) Write a script that stores into a Python dictionary a substitution matrix in tabular format. 
+For example:
+
+   A  R  N  D  C  Q  E  G  H  I  L  K  M  F  P  S  T  W  Y  V
+A  4 -1 -2 -2  0 -1 -1  0 -2 -1 -1 -1 -1 -2 -1  1  0 -3 -2  0
+R -1  5  0 -2 -3  1  0 -2  0 -3 -2  2 -1 -3 -2 -1 -1 -3 -2 -3
+N -2  0  6  1 -3  0  0  0  1 -3 -3  0 -2 -3 -2  1  0 -4 -2 -3
+D -2 -2  1  6 -3  0  2 -1 -1 -3 -4 -1 -3 -3 -1  0 -1 -4 -3 -3
+C  0 -3 -3 -3  9 -3 -4 -3 -3 -1 -1 -3 -1 -2 -3 -1 -1 -2 -2 -1
+Q -1  1  0  0 -3  5  2 -2  0 -3 -2  1  0 -3 -1  0 -1 -2 -1 -2
+E -1  0  0  2 -4  2  5 -2  0 -3 -3  1 -2 -3 -1  0 -1 -3 -2 -2
+G  0 -2  0 -1 -3 -2 -2  6 -2 -4 -4 -2 -3 -3 -2  0 -2 -2 -3 -3
+H -2  0  1 -1 -3  0  0 -2  8 -3 -3 -1 -2 -1 -2 -1 -2 -2  2 -3
+I -1 -3 -3 -3 -1 -3 -3 -4 -3  4  2 -3  1  0 -3 -2 -1 -3 -1  3
+L -1 -2 -3 -4 -1 -2 -3 -4 -3  2  4 -2  2  0 -3 -2 -1 -2 -1  1
+K -1  2  0 -1 -3  1  1 -2 -1 -3 -2  5 -1 -3 -1  0 -1 -3 -2 -2
+M -1 -1 -2 -3 -1  0 -2 -3 -2  1  2 -1  5  0 -2 -1 -1 -1 -1  1
+F -2 -3 -3 -3 -2 -3 -3 -3 -1  0  0 -3  0  6 -4 -2 -2  1  3 -1
+P -1 -2 -2 -1 -3 -1 -1 -2 -2 -3 -3 -1 -2 -4  7 -1 -1 -4 -3 -2
+S  1 -1  1  0 -1  0  0  0 -1 -2 -2  0 -1 -2 -1  4  1 -3 -2 -2
+T  0 -1  0 -1 -1 -1 -1 -2 -2 -1 -1 -1 -1 -2 -1  1  5 -2 -2  0
+W -3 -3 -4 -4 -2 -2 -3 -2 -2 -3 -2 -3 -1  1 -4 -3 -2 11  2 -3
+Y -2 -2 -2 -3 -2 -1 -2 -3  2 -1 -1 -2 -1  3 -3 -2 -2  2  7 -1
+V  0 -3 -3 -3 -1 -2 -2 -3 -3  3  1 -2  1 -1 -2 -2  0 -3 -1  4
+
+You can find other substitution matrices here: https://www.genome.jp/aaindex/
+You can find matrix codes here:  https://www.genome.jp/aaindex/AAindex/list_of_matrices
+
+Store in a dictionary the two following matrices (PAM250 and BLOSUM62, one dictionary per matrix)
+
+PAM250:
+M rows = ARNDCQEGHILKMFPSTWYV, cols = ARNDCQEGHILKMFPSTWYV
+      2.
+     -2.      6.
+      0.      0.      2.
+      0.     -1.      2.      4.
+     -2.     -4.     -4.     -5.     12.
+      0.      1.      1.      2.     -5.      4.
+      0.     -1.      1.      3.     -5.      2.      4.
+      1.     -3.      0.      1.     -3.     -1.      0.      5.
+     -1.      2.      2.      1.     -3.      3.      1.     -2.      6.
+     -1.     -2.     -2.     -2.     -2.     -2.     -2.     -3.     -2.      5.
+     -2.     -3.     -3.     -4.     -6.     -2.     -3.     -4.     -2.      2.      6.
+     -1.      3.      1.      0.     -5.      1.      0.     -2.      0.     -2.     -3.      5.
+     -1.      0.     -2.     -3.     -5.     -1.     -2.     -3.     -2.      2.      4.      0.      6.
+     -4.     -4.     -4.     -6.     -4.     -5.     -5.     -5.     -2.      1.      2.     -5.      0.      9.
+      1.      0.     -1.     -1.     -3.      0.     -1.     -1.      0.     -2.     -3.     -1.     -2.     -5.      6.
+      1.      0.      1.      0.      0.     -1.      0.      1.     -1.     -1.     -3.      0.     -2.     -3.      1.      2.
+      1.     -1.      0.      0.     -2.     -1.      0.      0.     -1.      0.     -2.      0.     -1.     -3.      0.      1.      3.
+     -6.      2.     -4.     -7.     -8.     -5.     -7.     -7.     -3.     -5.     -2.     -3.     -4.      0.     -6.     -2.     -5.     17.
+     -3.     -4.     -2.     -4.      0.     -4.     -4.     -5.      0.     -1.     -1.     -4.     -2.      7.     -5.     -3.     -3.      0.     10.
+      0.     -2.     -2.     -2.     -2.     -2.     -2.     -1.     -2.      4.      2.     -2.      2.     -1.     -1.     -1.      0.     -6.     -2.      4.
+
+
+BLOSUM62:
+M rows = ARNDCQEGHILKMFPSTWYV, cols = ARNDCQEGHILKMFPSTWYV
+      6.
+     -2.      8.
+     -2.     -1.      8.
+     -3.     -2.      2.      9.
+     -1.     -5.     -4.     -5.     13.
+     -1.      1.      0.      0.     -4.      8.
+     -1.      0.      0.      2.     -5.      3.      7.
+      0.     -3.     -1.     -2.     -4.     -3.     -3.      8.
+     -2.      0.      1.     -2.     -4.      1.      0.     -3.     11.
+     -2.     -4.     -5.     -5.     -2.     -4.     -5.     -6.     -5.      6.
+     -2.     -3.     -5.     -5.     -2.     -3.     -4.     -5.     -4.      2.      6.
+     -1.      3.      0.     -1.     -5.      2.      1.     -2.     -1.     -4.     -4.      7.
+     -1.     -2.     -3.     -5.     -2.     -1.     -3.     -4.     -2.      2.      3.     -2.      8.
+     -3.     -4.     -4.     -5.     -4.     -5.     -5.     -5.     -2.      0.      1.     -5.      0.      9.
+     -1.     -3.     -3.     -2.     -4.     -2.     -2.     -3.     -3.     -4.     -4.     -2.     -4.     -5.     11.
+      2.     -1.      1.      0.     -1.      0.      0.      0.     -1.     -4.     -4.      0.     -2.     -4.     -1.      6.
+      0.     -2.      0.     -2.     -1.     -1.     -1.     -2.     -3.     -1.     -2.     -1.     -1.     -3.     -2.      2.      7.
+     -4.     -4.     -6.     -6.     -3.     -3.     -4.     -4.     -4.     -4.     -2.     -4.     -2.      1.     -5.     -4.     -4.     16.
+     -3.     -3.     -3.     -5.     -4.     -2.     -3.     -5.      3.     -2.     -2.     -3.     -1.      4.     -4.     -3.     -2.      3.     10.
+      0.     -4.     -4.     -5.     -1.     -3.     -4.     -5.     -5.      4.      1.     -3.      1.     -1.     -4.     -2.      0.     -4.     -2.      6.
+//
+
+------------------------------------------------------------------------
+4) Given the following alignments:
+
+ALSKLASPALSAKDLDSPAL
+ALSKIADSLAPIKDLSPASL
+
+ALSKLA-SPALSAKDLDSPAL
+ALSKIADSLAP-IKDLSPASL
+
+ALSKLASPALSAKDLDSPA-L
+ALSKIADSLAPIKDLS-PASL
+
+ALSKLASPALSAKDLDSPA-LS
+ALSKIADSLAPIKDLS-PASLT
+
+Which one gets the highest score using PAM250 and d = -1?
+Which one gets the highest score using BLOSUM62 and d = -1?
+
+Write the script using the following construct:
+if __name__ == "__main__":
+    ...
+
+so that you can read the gap penalty and the matrix to use from the command line.
+------------------------------------------------------------------------
