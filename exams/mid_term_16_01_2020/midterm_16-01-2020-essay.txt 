@@ -1,0 +1,30 @@
+
+### Procedure 
+1. Write the short essay on paper
+2. If you have time, copy it to a text file
+3. Return the essay and upload the electronic version on your GitHub repository in the form:
+   <your_repo>/midterm_16012020/name_surname_theory.txt
+
+********************************************************************************************
+Questions (30% of the whole exam)
+********************************************************************************************
+Write a brief essay (400 < words < 600) critically discussing the following issues about alignments and substitution matrices:
+
+1) Discuss the scoring scheme we have seen in module 2 to evaluate an alignment between two biological sequences.
+2) What can we potentially deduce from a high scoring alignment? 
+3) How PAM and BLOSUM substitution matrices have been derived and how do we use them in the scoring scheme of point 1)?
+4) How/when do we use substitution matrices to score alignments obtained with the Needleman and Wunsch algorithm?
+
+Evaluation:
+1) 25%
+2) 20%
+3) 25%
+4) 30%
+
+
+
+
+
+
+
+
