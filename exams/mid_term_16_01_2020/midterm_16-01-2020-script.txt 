@@ -1,0 +1,61 @@
+Procedure:
+
+1. Write the "pseudo-code" on paper
+2. Write the script on paper
+3. Copy the "pseudo-code" AND the script to a text file 
+4. Debug and run the script
+5. Return the "pseudo-code" and the script AND upload the version on your GitHub repository in the form:
+   <your_repo>/midterm_16012020/name_surname_script.py
+
+
+********************************************************************************************
+Python programming exercise (70% of the whole midterm midterm exam)
+********************************************************************************************
+
+Write a script doing the following:
+
+1) Read substitution matrices from the PAM250.txt and BLOSUM62.txt files.
+2) Store substitution matrices in dictionaries.
+3) If 1) and 2) are too difficult for you, you can import the dictionaries directly from input_data.py 
+4) Read three alignments from the alignments.fasta file or import them directly from input_data.py.
+5) Use the substitution matrices PAM250 and BLOSUM62 to score each alignment and compare the results. 
+   For gap penalty use a linear gap model with d = -2.
+6) Print each alignment with its score
+7) Re-score the alignments using an affine gap penalty model g(n) = -d - (n -1)*e with d = -2 and e = 0.5 
+   (n = number of consecutive gaps) 
+
+Start by writing the "pseudo-code" for the script.
+
+Recommendations/Suggestions
+
+1. Please notice that you can complete the exercise using different approaches. In particular: 
+- you can read the alignments from alignments.fasta or import them from input_data.py
+- you can read substitution matrices from PAM250.txt and BLOSUM62.txt or import them from input_data.py 
+  in the form of a list (from which you can derive a dictionary) or directly in the form of a dictionary.
+2. Write a function that stores a matrix in a dictionary. If this is something you are not able to do, 
+   you can import the dictionary directly from input_data.py;
+3. Read the alignments from alignments.txt or import them directly from input_data.py
+4. If you have time, try to read the filenames from the command line (sys.argv) using the 
+   'if __name__ == "__main__":' construct
+5: Write a function that calculates the score of an alignment using a substitution matrix
+
+Results:
+Alignment 1:
+PAM250: 109.0
+BLOSUM62: 143.0
+
+Alignment 2: 
+PAM250: 31.0
+BLOSUM62: 27.0
+
+Alignment 3:
+PAM250: 20.0
+BLOSUM62: 39.0
+
+Evaluation:
+1) + 2): 40%
+3) 5%
+4)10%
+5)40%
+6)5%
+7) This counts for the "laude"
